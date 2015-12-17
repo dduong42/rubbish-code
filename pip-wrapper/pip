@@ -1,0 +1,21 @@
+#!/usr/bin/env python3
+
+# Script so that you don't install package globally by mistake.
+
+import os
+import subprocess
+import sys
+
+
+PIP_PATH = '/usr/local/bin/pip'
+
+
+def main():
+    confirm = input(
+        "You're not in a virtual env. Are you sure ? (Type 'yes') ")
+    if confirm == 'yes':
+        os.execv(PIP_PATH, sys.argv)
+
+
+if __name__ == '__main__':
+    main()
